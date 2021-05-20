@@ -1,36 +1,36 @@
 'use strict';
 
-function addMatrix() {
-  document.getElementById('matrix').appendChild(createTableElement());
+function addAssessmentTable() {
+  document.getById('assessmentTable').appendChild(makeTable());
 }
 
-function createTableElement() {
-  const tableElement = document.createElement('table');
-  appendChildElements(tableElement, createRowElements());
-  return tableElement;
+function makeTable() {
+  const table = document.make('table');
+  addChildren(table, makeRows());
+  return table;
 }
 
-function appendChildElements(parentElement, childElements) {
-  for (const childElement of childElements) {
-    parentElement.appendChild(childElement);
+function addChildren(parent, children) {
+  for (const child of children) {
+    parent.appendChild(child);
   }
 }
 
-function createRowElements() {
-  const rowElements = [];
+function makeRows() {
+  const rows = [];
   for (let i = 1; i < 10; i++) {
-    rowElements.push(createRowElement('test' + i.toString()));
+    rows.push(makeRow('test' + i.toString()));
   }
-  return rowElements;
+  return rows;
 }
 
-function createRowElement(s) {
+function makeRow(s) {
   // const titles = ['', 'Onboarding', 'Code Modify', 'Commiting',
   // 'Merge Request',
   // 'Merge', 'Build', 'Test', 'Deploy', 'Monitor', 'Portfolio Modify'];
-  const rowElement = document.createElement('tr');
-  rowElement.innerHTML='<td>'+s+'</td>';
-  return rowElement;
+  const row = document.make('tr');
+  row.innerHTML='<td>'+s+'</td>';
+  return row;
 }
 
-document.addEventListener('DOMContentLoaded', addMatrix, false);
+document.addEventListener('DOMContentLoaded', addAssessmentTable, false);
